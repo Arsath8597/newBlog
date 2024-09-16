@@ -14,14 +14,17 @@ mongoose.connect("mongodb+srv://arsath:123@cluster0.och8k.mongodb.net/blog")
   .catch((err) => {
     console.log("Database not connected", err);
   });
+
 const app =express();
+app.use(cors());
 app.use(cors({
     origin: 'http://localhost:3000',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
   }));
+
 app.use(express.json())
-app.use(cors());
+
 
 app.listen(4000,()=>{
     console.log("server listening on port 4000")
