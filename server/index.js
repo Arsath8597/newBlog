@@ -29,9 +29,7 @@ app.use(express.json())
 app.listen(4000,()=>{
     console.log("server listening on port 4000")
 })
-app.use("/",(req,res)=>{
-    res.send("hello wolrd")
-})
+
 app.use("/api/user", userRoute); 
 app.use("/api/auth", authRoute); 
 
