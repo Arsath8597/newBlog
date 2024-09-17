@@ -15,7 +15,7 @@ const Navigater=useNavigate()
     e.preventDefault();
     try {
       setLoading(true)
-      const res = await fetch('/api/auth/signup', {
+      const res = await fetch('https://newblogbackendproject.vercel.app/api/auth/signup', {
         method: 'POST', // Corrected: Added HTTP method
         headers: {
           'Content-Type': 'application/json',
@@ -26,6 +26,7 @@ const Navigater=useNavigate()
       // Check if the response is ok
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
+    
       }
 
       const data = await res.json();
@@ -37,6 +38,7 @@ const Navigater=useNavigate()
     } catch (error) {
   setLoading(false)
   setError(true)
+  console.log(error)
     }
   };
 
